@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping Cart Calculator</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: yellow; }
+        .container { width:600px; margin: auto; }
+        h2 { text-align:center; 
+		background:blue;
+		}
+        .box {
+            background:green;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #ccc;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 95%;
+            font-size: 16px;
+        }
+        button {
+            background: green;
+            color: grey; 
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+        button:hover {
+            background: orange;
+        }
+        ul { list-style: none; padding: 0; }
+        li { padding: 5px 0; }
+		cartList{
+		color:grey;
+		}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Shopping Cart Calculator</h2>
+
+    <!-- ====================== -->
+    <!-- PRODUCT INPUT AREA     -->
+    <!-- ====================== -->
+    <div class="box">
+        <h3>Add Product to Cart</h3>
+
+        <input type="text" id="productName" placeholder="Enter product name (example: Laptop)">
+        <input type="number" id="productPrice" placeholder="Enter price (example: 120)">
+        <button onclick="addProduct()">Add to Cart</button>
+    </div>
+
+
+    
+    <div class="box">
+        <h3>Shopping Cart</h3>
+        <ul id="cartList"></ul>
+
+        <hr>
+
+        <p><b>Total Before Discounts:</b> $<span id="totalBefore">0</span></p>
+        <p><b>Total Discounts:</b> $<span id="discountAmount">0</span></p>
+        <p><b>Total After Discounts:</b> $<span id="totalAfter">0</span></p>
+        <p><b>Tax (18%):</b> $<span id="taxAmount">0</span></p>
+
+        <h3>Final Amount: $<span id="finalAmount">0</span></h3>
+
+        <hr>
+
+        <p><b>Most Expensive Item:</b> <span id="expensiveItem">None</span></p>
+        <p><b>Cheapest Item:</b> <span id="cheapItem">None</span></p>
+    </div>
+
+</div>
+
+<script>
+    let items = [];
+    let prices = [];
+
+    function addProduct() {
+        let name = document.getElementById("productName").value.trim();
+        let price = Number(document.getElementById("productPrice").value);
+
+        if (name === "" || price <= 0) {
+            alert("Please enter a valid product and price!");
+            return;
+        }
+
+        items.push(name);
+        prices.push(price);
+
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
+
+        updateCart();
+    }
+
+    function updateCart() {
+        let cartList = document.getElementById("cartList");
+        cartList.innerHTML = "";
+
+      
+        for (let i = 0; i < items.length; i++) {
+            cartList.innerHTML += `<li>${items[i]} - $${prices[i]}</li>`;
+        }
+
+ 
+        let total = 0;
+        for (let p of prices) total += p;
+
+       
+        let discount = 0;
+        if (total > 1000) discount += total * 0.10;   // 10%
+        if (items.length > 5) discount += total * 0.05; // 5%
+
+        let afterDiscount = total - discount;
+
+        
+        let tax = afterDiscount * 0.18;
+        let finalAmount = afterDiscount + tax;
+
+        
+        if (prices.length > 0) {
+            let maxPrice = Math.max(...prices);
+            let minPrice = Math.min(...prices);
+
+            document.getElementById("expensiveItem").innerText = 
+                items[prices.indexOf(maxPrice)] + " ($" + maxPrice + ")";
+            document.getElementById("cheapItem").innerText = 
+                items[prices.indexOf(minPrice)] + " ($" + minPrice + ")";
+        }
+
+        
+        document.getElementById("totalBefore").innerText = total.toFixed(2);
+        document.getElementById("discountAmount").innerText = discount.toFixed(2);
+        document.getElementById("totalAfter").innerText = afterDiscount.toFixed(2);
+        document.getElementById("taxAmount").innerText = tax.toFixed(2);
+        document.getElementById("finalAmount").innerText = finalAmount.toFixed(2);
+    }
+</script> 
+
+
+</body>
+</html>
+

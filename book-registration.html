@@ -1,0 +1,166 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XYZ Furniture - Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header, nav, footer { background: #333; color: #fff; padding: 15px; text-align: center; }
+        nav a { color: rgb(255, 255, 255); margin: 0 15px; text-decoration: none; font-weight: bold; }
+        section { padding: 20px; }
+        canvas { border: 1px solid #aaa; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to XYZ Furniture</h1>
+</header>
+
+<nav>
+    <a href="home.html">Home</a>
+    <a href="product.html">Products</a>
+    <a href="IRANI.html">Contact</a>
+<a href="benita.html">video</a>
+<a href="ganza.html">audio</a>
+</nav>
+<body>
+<section>
+    <h2>welcome of xyz company</h2>
+    <p>
+    tree help to see money and tree help peaple  to see raw material.
+        </p>
+    <p>tree tosupport see tools different such as table,chair,
+        timber,windows ....then  the qality of tools .
+    </p>
+
+    
+    <canvas id="bannerCanvas" width="500" height="150"></canvas>
+</section>
+
+<
+
+<script>
+    const canvas = document.getElementById("bannerCanvas");
+    const ctx = canvas.getContext("2d");
+    
+    let x = 0;
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#4CAF50";
+        ctx.fillRect(x, 50, 150, 50);
+
+        ctx.fillStyle = "black";
+        ctx.font = "20px Arial";
+        ctx.fillText("XYZ Furniture", x + 20, 80);
+
+        x += 2;
+        if (x > canvas.width) x = -150;
+        
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XYZ Furniture - Products</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 0; }
+        header, nav, footer { background: #333; color: #fff; padding: 15px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .product-container { display: flex; flex-wrap: wrap; justify-content: center; }
+        .product { border: 1px solid #ccc; border-radius: 5px; width: 250px; margin: 15px; padding: 15px; text-align: center; }
+        .product img { width: 100%; height: 180px; object-fit: cover; }
+    </style>
+</head>
+<body>
+
+
+<aside>
+<section>
+    <h2>Furniture Collection</h2>
+
+    <div class="product-container">
+
+        <div class="product">
+            <img src="https://via.placeholder.com/250x180?text=Sofa" alt="Sofa">
+            <h3>Luxury Sofa</h3>
+            <p>Comfortable 3-seater sofa with premium material.</p>
+            <p><strong>$450</strong></p>
+        </div>
+<aside>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x180?text=Chair" alt="Chair">
+            <h3>Modern Chair</h3>
+            <p>Elegant wooden chair perfect for living rooms.</p>
+            <p><strong>$120</strong></p>
+        </div>
+</aside>
+        <div class="product">
+            <img src="https://via.placeholder.com/250x180?text=Table" alt="Table">
+            <h3>Dining Table</h3>
+            <p>High-quality wooden dining table for family gatherings.</p>
+            <p><strong>$350</strong></p>
+        </div>
+
+    </div>
+
+</section>
+</aside>
+
+
+
+
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>XYZ Furniture - Contact</title>
+    <style>
+        body { font-family: Arial; margin: 0; padding: 0; }
+        header, nav, footer { background: #f6f607; color: #1a2ee8; padding: 15px; text-align: center; }
+        nav a { color: rgb(234, 158, 27); margin: 0 15px; text-decoration: none; }
+        form { width: 50%; margin: auto; margin-top: 30px; }
+        label { display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+        button { margin-top: 15px; padding: 10px 20px; background: #dd08a8; color: rgb(24, 226, 17); border: none; }
+    </style>
+</head>
+<body>
+
+
+
+
+<section>
+    <h2>We'd Love to Hear from You</h2>
+
+    <form action="#" method="post">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2025 XYZ Furniture</p>
+    <p>table,chair,and so on</p>
+</footer>
+
+</body>
+</html>
